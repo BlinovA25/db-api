@@ -5,6 +5,8 @@ Rails.application.configure do
 
   config.secret_key_base = ENV["SECRET_KEY_BASE"]
 
+  config.hosts << "db-api-production.up.railway.app"
+
   # Code is not reloaded between requests.
   config.cache_classes = true
 
