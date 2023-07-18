@@ -1,1 +1,1 @@
-web: rake db:migrate
+web: rake db:migrate && bin/rails s
