@@ -19,5 +19,7 @@ class ApplicationController < ActionController::API
         }
     end
 
+    # def check_token
+    # end
 
 end

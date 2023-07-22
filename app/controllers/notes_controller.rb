@@ -1,4 +1,5 @@
 class NotesController < ApplicationController
+  before_action :check_token
   before_action :set_note, only: %i[ show update destroy ]
 
   # GET /notes
@@ -47,5 +48,10 @@ class NotesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def note_params
       params.require(:note).permit(:text)
+    end
+
+    # Should be moved from here!
+    def check_token
+      render json: "Verification fault. Token is incorrect or inpired!" unless Token.find_by(token: params[:token])&.check
     end
 end
