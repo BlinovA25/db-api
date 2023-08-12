@@ -1,11 +1,17 @@
 Rails.application.routes.draw do
-  get 'tokens/get'
-  get 'tokens/check'
   # Defines the root path route ("/")
   # root "articles#index"
 
   # Basic models routes
   resources :notes
+
+  # Report routes
+  scope '/reports' do
+    get '/', to: 'reports#existing_reports'
+    get '/download/:filename', to: 'reports#download_report'
+    get '/download_notes_report.csv', to: 'reports#download_notes_report', format: 'csv'
+    get '/generate_notes_report', to: 'reports#generate_notes_report'
+  end
 
   # Token routes
   scope '/tokens' do

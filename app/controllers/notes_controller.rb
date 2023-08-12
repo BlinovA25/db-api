@@ -1,5 +1,7 @@
+# require 'csv'
+
 class NotesController < ApplicationController
-  before_action :check_token
+  before_action :check_token, except: %i[ generate_csv gen_report_on_server ]
   before_action :set_note, only: %i[ show update destroy ]
 
   # GET /notes
@@ -40,18 +42,14 @@ class NotesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_note
-      @note = Note.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def note_params
-      params.require(:note).permit(:text)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_note
+    @note = Note.find(params[:id])
+  end
 
-    # Should be moved from here!
-    def check_token
-      render json: "Verification fault. Token is incorrect or inpired!" unless Token.find_by(token: params[:token])&.check
-    end
+  # Only allow a list of trusted parameters through.
+  def note_params
+    params.require(:note).permit(:text) #.merge(updated_at: DateTime.now + 1.day)
+  end
 end
