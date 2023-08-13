@@ -10,9 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_21_194311) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_12_235452) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "custom_objects", force: :cascade do |t|
+    t.jsonb "data", default: {}, null: false
+    t.integer "owner"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "notes", force: :cascade do |t|
     t.string "text"

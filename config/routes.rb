@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
-  # Defines the root path route ("/")
-  # root "articles#index"
-
   # Basic models routes
   resources :notes
+  resources :custom_objects
 
   # Report routes
   scope '/reports' do
