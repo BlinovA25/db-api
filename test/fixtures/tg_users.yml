@@ -1,0 +1,27 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  chat_id: 1
+  first_name: MyString
+  last_name: MyString
+  username: MyString
+  is_bot: false
+  language_code: MyString
+  is_premium: MyString
+  added_to_attachment_menu: MyString
+  can_join_groups: false
+  can_read_all_group_messages: false
+  supports_inline_queries: false
+
+two:
+  chat_id: 1
+  first_name: MyString
+  last_name: MyString
+  username: MyString
+  is_bot: false
+  language_code: MyString
+  is_premium: MyString
+  added_to_attachment_menu: MyString
+  can_join_groups: false
+  can_read_all_group_messages: false
+  supports_inline_queries: false

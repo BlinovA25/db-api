@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   # Basic models routes
   resources :notes
   resources :custom_objects
+  resources :tg_users
 
   # Report routes
   scope '/reports' do
